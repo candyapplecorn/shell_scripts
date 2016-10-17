@@ -22,7 +22,7 @@ These scripts _must be in the same folder_ which contains '_assessment.js_'.<br>
 The "hard" part is actually getting these command files:
 
 #### The easiest way:
-1. __Download__ the file '<i>bundled_commands.zip</i>'
+1. __Download__ '<i>bundled_commands.zip</i>'
 2. __Copy__ '<i>bundled_commands.zip</i>' to the desired folder.
 3. __Extract__ it.
 
