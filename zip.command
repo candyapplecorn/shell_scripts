@@ -38,7 +38,7 @@ last=${last// /_}
 # Concatenate the fn, ln and 'archive'
 #
 fnln=($first $last archive);
-fnln=`echo ${fnln[@]} | tr ' ' '_'`
+fnln=`echo ${fnln[@]} | tr ' ' '_'` # Essentially join on underlines.
 
 # Delete previous archive files
 #
@@ -53,12 +53,9 @@ rm -r ${fnln%_archive}
 echo "Created archive file '$fnln.zip'"
 ###
 
-# Create the zip file.
-#
-#zip -r "$WORKING_DIRECTORY/$fnln" $WORKING_DIRECTORY
-#echo "Created archive file '$fnln.zip'"
-
 # Close the window.
 #
 echo -n -e "\033]0;Create Archive File\007"
 osascript -e 'tell application "Terminal" to close (every window whose name contains "Create Archive File")' &
+# This line should never be reached, but in case this command is being executed from non-Apple:
+exit
