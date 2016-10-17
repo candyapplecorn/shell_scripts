@@ -1,6 +1,9 @@
 ###############################################################################
 #   Script by Joseph Burger 2016 - candyapplecorn@gmail.com
 ###############################################################################
+#   This script, when clicked on a mac computer, will open
+#   a shell and run mocha. This helps students who have a hard
+#   time operating the CLI.
 
 # When opening a .command, the first shell command is simply
 # the name of the file. We can use this to extract the 
@@ -11,6 +14,12 @@ open_dir=`echo $open_dir | awk '{print $2}'`
 # Finally, remove the filename ( /open.command )
 WORKING_DIRECTORY=${open_dir%/*}
 
+# Added compatibility for shell usage; can now be run from CLI via bash thisScript.command
+# Check to see if running from shell, aka bash thisScript.command
+if [[ `find . -iname "mocha.command" -maxdepth 1` ]]; then
+    WORKING_DIRECTORY=$PWD
+    FROM_SHELL=yes
+fi;
 
 cd $WORKING_DIRECTORY;
 
@@ -81,4 +90,6 @@ mocha
 
 echo $res
 echo "Type 'mocha' into your shell to run another test."
-bash
+if [[ ! $FROM_SHELL ]]; then
+    bash
+fi

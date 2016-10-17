@@ -16,6 +16,12 @@ open_dir=`echo $open_dir | awk '{print $2}'`
 # Finally, remove the filename ( /zip.command )
 WORKING_DIRECTORY=${open_dir%/*}
 
+# Added compatibility for shell usage; can now be run from CLI via bash thisScript.command
+# Check to see if running from shell, aka bash thisScript.command
+if [[ `find . -iname "mocha.command" -maxdepth 1` ]]; then
+    WORKING_DIRECTORY=$PWD
+fi;
+
 cd $WORKING_DIRECTORY;
 
 # Prompt the user for their first and last name.
@@ -57,5 +63,3 @@ echo "Created archive file '$fnln.zip'"
 #
 echo -n -e "\033]0;Create Archive File\007"
 osascript -e 'tell application "Terminal" to close (every window whose name contains "Create Archive File")' &
-# This line should never be reached, but in case this command is being executed from non-Apple:
-exit
