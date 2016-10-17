@@ -37,3 +37,12 @@ The other is to clone or download this repository and copy the desired command f
 ### todos:
 2. todo: Permissions??.
 3. Make this all __cross-platform__ (Windows) by abandoning bash - batfile?
+
+#### maintainer - update
+
+```bash
+# Go to main folder
+find . -type d -iname 'test' -print
+all=`find . -type d -iname 'test' -print`
+for i in $all; do i=`echo ${i%/*}`; cp ~/github/shell_scripts/*command $i; done
+```
