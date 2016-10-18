@@ -9,7 +9,7 @@ The goal of these scripts is to reduce the amount of command line usage for begi
 
 ## Usage
 
-__Mac__: Simply double-click to run!<br>
+__Mac__: Simply double-click to run! User may have to [allow commands to run](https://kb.wisc.edu/helpdesk/page.php?id=25443).<br>
 __Linux__: From terminal: `$bash zip.command` or `$bash mocha.command`.
 
 __Windows__: _No support yet_, unless you're using Windows 10, which _may_ have bash installed; _probably only if you remember installing it!_ If bash is installed, see instructions for Linux.
